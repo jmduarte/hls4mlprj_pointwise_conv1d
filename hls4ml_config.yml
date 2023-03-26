@@ -1,0 +1,35 @@
+Backend: Vivado
+ClockPeriod: 5
+HLSConfig:
+  LayerName:
+    conv1d:
+      ConvImplementation: Pointwise
+      Precision:
+        bias: ap_fixed<8,3>
+        result: ap_fixed<8,3>
+        weight: ap_fixed<8,3>
+      ReuseFactor: 4
+      Strategy: latency
+      Trace: false
+    conv1d_linear:
+      Precision:
+        result: ap_fixed<8,3>
+      Trace: false
+    input_1:
+      Precision:
+        result: ap_fixed<8,3>
+      Trace: false
+  Model:
+    BramFactor: 1000000000
+    Precision: ap_fixed<8,3>
+    ReuseFactor: 1
+    Strategy: Latency
+    TraceOutput: false
+IOType: io_parallel
+InputData: null
+KerasModel: !keras_model 'prj_tmp/hls4mlprj_node_edge_projection/keras_model.h5'
+OutputDir: prj_tmp/hls4mlprj_node_edge_projection
+OutputPredictions: null
+Part: xcku115-flvb2104-2-i
+ProjectName: myproject
+Stamp: ab0B8FF7
